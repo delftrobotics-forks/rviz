@@ -34,6 +34,7 @@
 #include <QCloseEvent>
 
 #include "rviz/panel_dock_widget.h"
+#include "rviz/visualization_frame.h"
 
 namespace rviz
 {
@@ -100,13 +101,13 @@ void PanelDockWidget::setCollapsed( bool collapse )
   {
     if ( isVisible() )
     {
-      QDockWidget::setVisible( false );
+      PanelDockWidget::setVisible( false );
       collapsed_ = collapse;
     }
   }
   else
   {
-    QDockWidget::setVisible( true );
+    PanelDockWidget::setVisible( true );
     collapsed_ = collapse;
   }
 }
@@ -142,6 +143,25 @@ void PanelDockWidget::save( Config config )
 void PanelDockWidget::load( Config config )
 {
   config.mapGetBool( "collapsed", &collapsed_ );
+}
+
+void PanelDockWidget::setVisible( bool visible )
+{
+  requested_visibility_ = visible;
+
+  VisualizationFrame * frame = dynamic_cast<VisualizationFrame *>(parentWidget());
+  if (frame == NULL)
+  {
+    QDockWidget::setVisible(requested_visibility_);
+    return;
+  }
+
+  QDockWidget::setVisible(requested_visibility_ && !frame->interfaceHidden());
+}
+
+void PanelDockWidget::updateVisibility()
+{
+  setVisible(requested_visibility_);
 }
 
 } // end namespace rviz

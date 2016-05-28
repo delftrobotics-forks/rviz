@@ -156,6 +156,9 @@ public:
   /** @brief Hide or show the hide-dock buttons. */
   void setHideButtonVisibility( bool visible );
 
+  /** @brief Check if the interface lements are hidden. */
+  bool interfaceHidden() const { return interface_hidden_; }
+
 public Q_SLOTS:
   /** @brief Call this to let the frame know that something that would
    *         get saved in the display config has changed. */
@@ -218,6 +221,9 @@ protected Q_SLOTS:
    * The sender() of the signal should be a QAction whose text() is
    * the name of the panel. */
   void onDeletePanel();
+
+  /** @brief Toggle visibility of interface elements. */
+  void toggleHideInterface( bool checked );
 
 protected Q_SLOTS:
   /** @brief Set loading_ to false. */
@@ -299,7 +305,6 @@ protected:
   QMenu* view_menu_;
   QMenu* delete_view_menu_;
   QMenu* plugins_menu_;
-  QList<QAction*> view_menu_actions_;
 
   QToolBar* toolbar_;
 
@@ -350,6 +355,12 @@ protected:
   ros::WallTime last_fps_calc_time_;
 
   QString error_message_; ///< Error message (if any) from most recent saveDisplayConfig() call.
+
+  /// Indicates if the interface elements should be hidden.
+  bool interface_hidden_;
+
+  /// Indicates if the toolbar should be visible.
+  bool toolbar_visibile_;
 };
 
 }

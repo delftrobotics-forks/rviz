@@ -58,6 +58,12 @@ public:
   virtual void save( Config config );
   virtual void load( Config config );
 
+  /** @brief Override setVisible to respect parentWidget()->interfaceHidden() */
+  virtual void setVisible( bool visible );
+
+  /** @brief Update visiblity after parentWidget()->interfaceHidden() changes */
+  virtual void updateVisibility();
+
 protected:
 
   virtual void closeEvent ( QCloseEvent * event );
@@ -76,6 +82,7 @@ Q_SIGNALS:
 private:
   // set to true if this panel was collapsed
   bool collapsed_;
+  bool requested_visibility_;
   QLabel *icon_label_;
   QLabel *title_label_;
 };

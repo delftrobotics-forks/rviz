@@ -463,6 +463,9 @@ void VisualizationFrame::initMenus()
   view_menu_->addAction( "Add &New Panel", this, SLOT( openNewPanelDialog() ));
   delete_view_menu_ = view_menu_->addMenu( "&Delete Panel" );
   delete_view_menu_->setEnabled( false );
+  QAction * hide_interface_action = view_menu_->addAction("&Hide Interface", this, SLOT(toggleHideInterface(bool)), Qt::CTRL+Qt::Key_H);
+  hide_interface_action->setCheckable(true);
+  this->addAction(hide_interface_action); // Also add to window, or the shortcut doest work when the menu is hidden.
   view_menu_->addSeparator();
 
   QMenu* help_menu = menuBar()->addMenu( "&Help" );
@@ -1208,6 +1211,24 @@ void VisualizationFrame::onDeletePanel()
         return;
       }
     }
+  }
+}
+
+void VisualizationFrame::toggleHideInterface( bool checked ) {
+  interface_hidden_ = checked;
+  bool visible = !interface_hidden_;
+  if (!visible) {
+    toolbar_visibile_ = toolbar_->isVisible();
+  }
+  menuBar()->setVisible(visible);
+  toolbar_->setVisible(visible && toolbar_visibile_);
+  statusBar()->setVisible(visible);
+  setHideButtonVisibility(visible);
+
+  QList<PanelDockWidget *> dock_widgets = findChildren<PanelDockWidget *>();
+  for (QList<PanelDockWidget *>::iterator i = dock_widgets.begin(); i != dock_widgets.end(); ++i)
+  {
+    (*i)->updateVisibility();
   }
 }
 
