@@ -104,6 +104,13 @@ else()
 endif()
 add_definitions(-DQT_NO_KEYWORDS)
 
+set(RVIZ_PYTHON_BINDINGS_DEPS)
+option(RVIZ_PYTHON_BINDINGS "Generate RViz python bindings" ON)
+if (RVIZ_PYTHON_BINDINGS)
+  list(APPEND RVIZ_PYTHON_BINDINGS_DEPS python_qt_binding)
+endif()
+
+
 find_package(catkin REQUIRED
   COMPONENTS
   angles
@@ -116,7 +123,6 @@ find_package(catkin REQUIRED
   message_filters
   nav_msgs
   pluginlib
-  python_qt_binding
   resource_retriever
   rosbag
   rosconsole
@@ -130,6 +136,7 @@ find_package(catkin REQUIRED
   urdf
   visualization_msgs
   urdfdom_headers
+  ${RVIZ_PYTHON_BINDINGS_DEPS}
 )
 
 set(RVIZ_BOOST_COMPONENTS filesystem program_options system thread)
