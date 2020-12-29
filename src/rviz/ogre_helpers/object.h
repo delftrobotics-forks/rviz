@@ -32,6 +32,7 @@
 
 #include "rviz/rviz_export.h"
 
+#include <OgreAny.h>
 #include <OgrePrerequisites.h>
 
 namespace rviz

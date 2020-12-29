@@ -32,6 +32,7 @@
 #ifndef OGRE_TOOLS_ARROW_H
 #define OGRE_TOOLS_ARROW_H
 
+#include <OgreAny.h>
 #include <OgrePrerequisites.h>
 
 namespace rviz

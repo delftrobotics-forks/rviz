@@ -32,6 +32,7 @@
 
 #include "object.h"
 
+#include <OgreAny.h>
 #include <OgreSceneNode.h>
 #include <OgreMaterial.h>
 #include <OgreSharedPtr.h>

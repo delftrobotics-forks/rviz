@@ -30,6 +30,7 @@
 #include "axes.h"
 #include "shape.h"
 
+#include <OgreAny.h>
 #include <OgreSceneManager.h>
 #include <OgreSceneNode.h>
 #include <OgreVector3.h>
