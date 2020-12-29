@@ -122,6 +122,12 @@ else()
 endif()
 add_definitions(-DQT_NO_KEYWORDS)
 
+option(PYTHON_BINDINGS "Build RViz python bindingd" ON)
+if(PYTHON_BINDINGS)
+  find_package(PythonLibs "${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}" REQUIRED)
+  list(APPEND EXTRA_PACKAGES python_qt_binding)
+endif()
+
 find_package(catkin REQUIRED
   COMPONENTS
   cmake_modules
@@ -134,7 +140,6 @@ find_package(catkin REQUIRED
   message_generation
   nav_msgs
   pluginlib
-  python_qt_binding
   resource_retriever
   rosbag
   rosconsole
@@ -147,9 +152,8 @@ find_package(catkin REQUIRED
   tf
   urdf
   visualization_msgs
+  ${EXTRA_PACKAGES}
 )
-
-find_package(PythonLibs "${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}" REQUIRED)
 
 find_package(Eigen3 QUIET)
 if(NOT EIGEN3_FOUND)
@@ -164,7 +168,9 @@ endif()
 
 find_package(TinyXML2 REQUIRED)
 
-catkin_python_setup()
+if(PYTHON_BINDINGS)
+  catkin_python_setup()
+endif()
 
 if(NOT OGRE_OV_LIBRARIES_ABS)
   set(OGRE_OV_LIBRARIES_ABS ${OGRE_OV_LIBRARIES})
@@ -232,10 +238,14 @@ include_directories(SYSTEM
   ${EIGEN3_INCLUDE_DIRS}
   ${OGRE_OV_INCLUDE_DIRS}
   ${OPENGL_INCLUDE_DIR}
-  ${PYTHON_INCLUDE_PATH}
   ${TinyXML2_INCLUDE_DIRS}
   ${urdfdom_headers_INCLUDE_DIRS}
 )
+
+if(PYTHON_BINDINGS)
+  include_directories(SYSTEM ${PYTHON_INCLUDE_PATH})
+endif()
+
 #catkin_lint: ignore_once external_directory
 include_directories(src ${EXPORT_HEADER_DIR})
 include_directories(SYSTEM ${catkin_INCLUDE_DIRS})
