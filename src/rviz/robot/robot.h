@@ -38,20 +38,9 @@
 #include <OgreVector3.h>
 #include <OgreQuaternion.h>
 #include <OgreAny.h>
+#include <OgrePrerequisites.h>
 
 #include <urdf/model.h> // can be replaced later by urdf_model/types.h
-
-namespace Ogre
-{
-class SceneManager;
-class Entity;
-class SceneNode;
-class Vector3;
-class Quaternion;
-class Any;
-class RibbonTrail;
-class SceneNode;
-} // namespace Ogre
 
 namespace rviz
 {

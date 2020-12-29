@@ -3,11 +3,7 @@
 
 #include <geometry_msgs/Wrench.h>
 
-namespace Ogre
-{
-class Vector3;
-class Quaternion;
-} // namespace Ogre
+#include <OgrePrerequisites.h>
 
 namespace rviz
 {

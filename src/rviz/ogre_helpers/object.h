@@ -32,14 +32,7 @@
 
 #include "rviz/rviz_export.h"
 
-namespace Ogre
-{
-class SceneManager;
-class SceneNode;
-class Vector3;
-class Quaternion;
-class Any;
-} // namespace Ogre
+#include <OgrePrerequisites.h>
 
 namespace rviz
 {

@@ -35,16 +35,7 @@
 #include <OgreSceneNode.h>
 #include <OgreMaterial.h>
 #include <OgreSharedPtr.h>
-
-namespace Ogre
-{
-class SceneManager;
-class SceneNode;
-class Vector3;
-class Quaternion;
-class Any;
-class ColourValue;
-} // namespace Ogre
+#include <OgrePrerequisites.h>
 
 namespace rviz
 {

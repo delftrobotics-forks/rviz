@@ -39,13 +39,7 @@
 
 #include <boost/shared_ptr.hpp>
 
-namespace Ogre
-{
-class SceneNode;
-class Vector3;
-class Quaternion;
-class Entity;
-} // namespace Ogre
+#include <OgrePrerequisites.h>
 
 namespace rviz
 {

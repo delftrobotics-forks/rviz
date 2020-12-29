@@ -40,6 +40,7 @@
 #include <OgreQuaternion.h>
 #include <OgreAny.h>
 #include <OgreMaterial.h>
+#include <OgrePrerequisites.h>
 #endif
 
 #include <urdf/model.h>
@@ -47,18 +48,6 @@
 
 #include "rviz/ogre_helpers/object.h"
 #include "rviz/selection/forwards.h"
-
-namespace Ogre
-{
-class SceneManager;
-class Entity;
-class SubEntity;
-class SceneNode;
-class Vector3;
-class Quaternion;
-class Any;
-class RibbonTrail;
-} // namespace Ogre
 
 namespace rviz
 {

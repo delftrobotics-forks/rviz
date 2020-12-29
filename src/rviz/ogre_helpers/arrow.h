@@ -32,15 +32,7 @@
 #ifndef OGRE_TOOLS_ARROW_H
 #define OGRE_TOOLS_ARROW_H
 
-namespace Ogre
-{
-class SceneManager;
-class SceneNode;
-class Vector3;
-class Quaternion;
-class ColourValue;
-class Any;
-} // namespace Ogre
+#include <OgrePrerequisites.h>
 
 namespace rviz
 {

@@ -36,16 +36,9 @@
 
 #include "rviz/properties/property.h"
 #include "rviz/rviz_export.h"
+#include <OgrePrerequisites.h>
 
 class QKeyEvent;
-
-namespace Ogre
-{
-class Camera;
-class SceneNode;
-class Vector3;
-class Quaternion;
-} // namespace Ogre
 
 namespace rviz
 {
