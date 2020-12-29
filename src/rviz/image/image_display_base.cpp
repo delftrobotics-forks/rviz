@@ -27,6 +27,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include <boost/bind.hpp>
 #include <boost/algorithm/string/erase.hpp>
 #include <boost/foreach.hpp>
 #include <boost/shared_ptr.hpp>

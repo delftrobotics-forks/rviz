@@ -47,6 +47,8 @@
 
 #include "rviz/default_plugin/marker_display.h"
 
+#include <boost/bind.hpp>
+
 namespace rviz
 {
 

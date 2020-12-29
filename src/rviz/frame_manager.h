@@ -60,6 +60,8 @@
 #include <tf2_ros/message_filter.h>
 #endif
 
+#include <boost/bind.hpp>
+
 namespace tf
 {
 class TransformListener;

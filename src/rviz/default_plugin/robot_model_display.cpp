@@ -42,6 +42,8 @@
 
 #include "robot_model_display.h"
 
+#include <boost/bind.hpp>
+
 namespace rviz
 {
 

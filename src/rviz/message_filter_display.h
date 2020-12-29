@@ -43,6 +43,8 @@
 
 #include "rviz/display.h"
 
+#include <boost/bind.hpp>
+
 namespace rviz
 {
 

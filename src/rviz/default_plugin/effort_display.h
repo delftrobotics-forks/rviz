@@ -8,6 +8,8 @@
 #include <sensor_msgs/JointState.h>
 #include <rviz/message_filter_display.h>
 
+#include <boost/bind.hpp>
+
 namespace Ogre
 {
     class SceneNode;
